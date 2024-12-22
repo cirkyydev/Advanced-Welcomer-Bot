@@ -26,7 +26,7 @@ so now that your advanced welcomer discord bot will go online and start it's exc
 
 # Features (Can fully customized)
 
-DM Welcomer with 4 link buttons and create a server invite link.
+DM Welcomer with 4 link buttons and create a permanent server invite link.
 
 ![DM Welcomer](https://github.com/Masihdeveloper/Advanced-Welcomer-Bot/assets/100484009/ffec9b5e-7840-42f3-ac5b-d4ef7f43e731)
 
