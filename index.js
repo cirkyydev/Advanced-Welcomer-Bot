@@ -44,7 +44,7 @@ client.on("guildMemberAdd", async (member) => {
     const welcomeChannel = member.guild.channels.cache.get(
       config.welcomeChannelId
     );
-    // Create a discord invite link from the entered welcome channel
+    // Create a permanent & unlimited Discord invite link from the entered welcome channel
     const welcomeInvitesLink = await welcomeChannel.createInvite({
       maxAge: 0,
       maxUses: 0,
@@ -252,7 +252,7 @@ client.on("guildMemberAdd", async (member) => {
     })
     .catch((err) => {
       console.log(
-        `An error ocurred while pinging this member: ${member.user.username} to the ${pingOnJoinChannel.name} channel\nCurrent Error can be find here: ${err}`
+        `An error occurred while pinging this member: ${member.user.username} to the ${pingOnJoinChannel.name} channel\nCurrent Error can be find here: ${err}`
       );
     });
 });
