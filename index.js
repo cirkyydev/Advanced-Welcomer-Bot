@@ -46,8 +46,8 @@ client.on("guildMemberAdd", async (member) => {
     );
     // Create a discord invite link from the entered welcome channel
     const welcomeInvitesLink = await welcomeChannel.createInvite({
-      maxAge: 10 * 60 * 1000,
-      maxUses: 100,
+      maxAge: 0,
+      maxUses: 0,
     });
     // If the welcome channel is not found, all of the remaining action are return
     if (!welcomeChannel) {
