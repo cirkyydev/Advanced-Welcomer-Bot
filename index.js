@@ -1,8 +1,8 @@
 /* 
 Fully Customized Advanced Welcomer Discord Bot in Discord.js V14
-Hope you Enjoy, Made with 🤍 by Masih#0258
-Github: https://github.com/Masihdeveloper | Please Don't forget to ⭐
-Website: https://masihdev.ir/
+Hope you Enjoy, Made with 🤍 by CalledMasih
+Github: https://github.com/calledmasih | Please Don't forget to ⭐
+Website: https://calledmasih.ir/
 Features: Exclusive Joined role for human and bot users, DM Welcomer with Embed, Buttons and the Server Invite Link, Welcoming to the NEW members in the specific channel, Ping on Join, Log System for this Information, Set the current Server Member Count to a Voice channel's Name and more...
 Copyright Masih 2023 All Right Reserved!
 */
@@ -44,17 +44,17 @@ client.on("guildMemberAdd", async (member) => {
     const welcomeChannel = member.guild.channels.cache.get(
       config.welcomeChannelId
     );
-    // Create a permanent & unlimited Discord invite link from the entered welcome channel
-    const welcomeInvitesLink = await welcomeChannel.createInvite({
-      maxAge: 0,
-      maxUses: 0,
-    });
     // If the welcome channel is not found, all of the remaining action are return
     if (!welcomeChannel) {
       return console.log(
         "I can't find the welcome channel, Please set the channel ID in config.json"
       );
     }
+    // Create a permanent & unlimited Discord invite link from the entered welcome channel
+    const welcomeInvitesLink = await welcomeChannel.createInvite({
+      maxAge: 0,
+      maxUses: 0,
+    });
     // DM Welcomer
     const welcomeDMEmbed = new EmbedBuilder()
       .setTitle(
@@ -62,7 +62,7 @@ client.on("guildMemberAdd", async (member) => {
           member.guild.name
         }__** [${member.guild.memberCount.toLocaleString()}]`
       )
-      .setURL("https://masihdev.ir/")
+      .setURL("https://calledmasih.ir/")
       .setDescription(config.dmWelcomerDescription || "No Data was filled out")
       .setThumbnail(member.guild.iconURL({ size: 1024 }))
       .setColor(member.guild.members.me.displayHexColor)
@@ -85,22 +85,26 @@ client.on("guildMemberAdd", async (member) => {
     const welcomeDMRow = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setLabel(config.dmWelcomerLinkButtons.first.label || "No Data")
-        .setURL(config.dmWelcomerLinkButtons.first.url || "https://masihdev.ir")
+        .setURL(
+          config.dmWelcomerLinkButtons.first.url || "https://calledmasih.ir"
+        )
         .setStyle(ButtonStyle.Link),
       new ButtonBuilder()
         .setLabel(config.dmWelcomerLinkButtons.second.label || "No Data")
         .setURL(
-          config.dmWelcomerLinkButtons.second.url || "https://masihdev.ir"
+          config.dmWelcomerLinkButtons.second.url || "https://calledmasih.ir"
         )
         .setStyle(ButtonStyle.Link),
       new ButtonBuilder()
         .setLabel(config.dmWelcomerLinkButtons.third.label || "No Data")
-        .setURL(config.dmWelcomerLinkButtons.third.url || "https://masihdev.ir")
+        .setURL(
+          config.dmWelcomerLinkButtons.third.url || "https://calledmasih.ir"
+        )
         .setStyle(ButtonStyle.Link),
       new ButtonBuilder()
         .setLabel(config.dmWelcomerLinkButtons.fourth.label || "No Data")
         .setURL(
-          config.dmWelcomerLinkButtons.fourth.url || "https://masihdev.ir"
+          config.dmWelcomerLinkButtons.fourth.url || "https://calledmasih.ir"
         )
         .setStyle(ButtonStyle.Link)
     );
@@ -110,7 +114,7 @@ client.on("guildMemberAdd", async (member) => {
         .setCustomId("Disabled Button")
         .setLabel(member.user.username)
         .setEmoji("🎉")
-        .setStyle(ButtonStyle.Danger) // You can Danger to: Primary (Blue), Success (Green) or Secondary (White)
+        .setStyle(ButtonStyle.Danger) // You can set Danger to: Primary (Blue), Success (Green) or Secondary (White)
         .setDisabled(true)
     );
     // Send the Information to the member's DM
@@ -150,7 +154,7 @@ client.on("guildMemberAdd", async (member) => {
       new ButtonBuilder()
         .setLabel(config.welcomeChannelLinkButton.label || "No Data")
         .setEmoji("988331472614215680")
-        .setURL(config.welcomeChannelLinkButton.url || "https://masihdev.ir")
+        .setURL(config.welcomeChannelLinkButton.url || "https://calledmasih.ir")
         .setStyle(ButtonStyle.Link)
     );
     // Send the Embed Message to your welcome channel
@@ -251,7 +255,7 @@ client.on("guildMemberAdd", async (member) => {
       }, 3000); // Delete the ping on join content after 3 seconds
     })
     .catch((err) => {
-      console.log(
+      console.error(
         `An error occurred while pinging this member: ${member.user.username} to the ${pingOnJoinChannel.name} channel\nCurrent Error can be find here: ${err}`
       );
     });
@@ -269,13 +273,13 @@ client.on("ready", async () => {
     activities: [
       {
         name: config.botActivityName || "No Data was filled out",
-        type: ActivityType.Watching, // You change Watching to: Playing, Listening or Competing
+        type: ActivityType.Watching, // You can change Watching to: Playing, Listening or Competing
       },
     ],
   });
   // Edit the channel name to current guild members count and refresh the data every 15 minutes
-  const ms = 900000;
-  if (ms < 360000) {
+  const ms = 900_000;
+  if (ms < 360_000) {
     console.log(
       "Be careful, according to the Discord API TOS, the minimum time required to edit a channel is every 6 minutes, so please make your time more than 360,000 milliseconds."
     );
@@ -286,15 +290,15 @@ client.on("ready", async () => {
     );
   }, ms);
   console.log(
-    `${client.user.username} is now online and enjoy your advanced welcomer!\nGitHub: https://github.com/masihdeveloper | If is useful please don't forget to follow me and star my repository ⭐\nTotal Server: ${client.guilds.cache.size}`
+    `${client.user.username} is now online and enjoy your advanced welcomer!\nGitHub: https://github.com/calledmasih | If is useful please don't forget to follow me and star my repository ⭐\nTotal Servers: ${client.guilds.cache.size}`
   );
 });
 
-// Logged in to your Client
+// Log in to your Client
 client.login(config.botToken);
 
 /*
-❓ Don't forget to filled out config.json file by your information and check the README.md file
-All of the methods have been carefully tested and without any bugs
-But if you have any issues while using this source, feel free to contact me thorough my social media which is @Masihdeveloper
-*/
+  ❓ Don't forget to filled out config.json file by your information and check the README.md file
+  All of the methods have been carefully tested and without any bugs
+  But if you have any issues while using this source, feel free to contact me thorough my social media which is @CalledMasih
+  */
