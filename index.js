@@ -18,6 +18,17 @@ const {
 } = require("discord.js");
 const config = require("./config.json");
 // Create a new client | Don't change the intents
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+}) 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
@@ -58,7 +69,7 @@ client.on("guildMemberAdd", async (member) => {
     // DM Welcomer
     const welcomeDMEmbed = new EmbedBuilder()
       .setTitle(
-        `Dear ${member.user.username}, Welcome to the **__${
+        `Hey ${member.user.username}, Merhba bek f **__${
           member.guild.name
         }__** [${member.guild.memberCount.toLocaleString()}]`
       )
@@ -133,7 +144,7 @@ client.on("guildMemberAdd", async (member) => {
     // Welcome in the Specific channel
     const welcomeEmbed = new EmbedBuilder()
       .setAuthor({
-        name: `Hello ${member.user.username}, Welcome to the ${
+        name: `Salam ${member.user.username}, Merhba bek f ${
           member.guild.name
         } [${member.guild.memberCount.toLocaleString()}]`,
         iconURL: member.user.displayAvatarURL({
@@ -268,14 +279,14 @@ client.on("ready", async () => {
   );
   // Set status and activity for the logged in client
   client.user.setPresence({
+
     // You can go for: online, idle, dnd and invisible in the config.json file
     status: config.botStatus || "online",
-    activities: [
-      {
-        name: config.botActivityName || "No Data was filled out",
-        type: ActivityType.Watching, // You can change Watching to: Playing, Listening or Competing
-      },
-    ],
+      activities: [{
+        name: config.presence ? config.presence : config.botActivityName || "No Data was filled out",
+        type: ActivityType.Streaming,
+        url: "https://www.twitch.tv/ctradess"
+      }]
   });
   // Edit the channel name to current guild members count and refresh the data every 15 minutes
   const ms = 900_000;
