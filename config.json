@@ -1,34 +1,35 @@
 {
-  "botToken": "YOUR BOT TOKEN, Get this from Discord developer portal",
-  "botStatus": "YOUR BOT STATUS, Must be replaced to one of them: 'online' or 'idle' or 'dnd' or 'invisible'",
-  "botActivityName": "YOUR BOT ACTIVITY NAME, That display bottom of your status",
-  "displayMemberCountVoiceChannelId": "ENTER THE VOICE CHANNEL ID, For display your total server members count",
-  "welcomeChannelId": "YOUR WELCOME CHANNEL ID, For send a welcome message and delete it after 90s (Only Numbers)",
-  "welcomeLogChannelId": "YOUR WELCOME LOG CHANNEL ID, For send some info about this member (Only Numbers)",
-  "welcomeRoleId": "YOUR WELCOMER ROLE ID, Assign to the human's member (Only Numbers)",
-  "welcomeBotRoleId": "YOUR WELCOMER BOT ROLE ID, Assign to the bot's user (Only Numbers)",
+  "botToken": "",
+  "botStatus": "dnd",
+  "presence": "CTrades 2.0",
+  "botActivityName": "CTrade 2.0",
+  "displayMemberCountVoiceChannelId": "1342971175873019995",
+  "welcomeChannelId": "1343212269450039326",
+  "welcomeLogChannelId": "1343316462915551272",
+  "welcomeRoleId": "1338872273310056448",
+  "welcomeBotRoleId": "1338872273310056448",
   "welcomeChannelLinkButton": {
-    "label": "YOUR CHANNEL WELCOMER BUTTON LABEL (Less than 80 characters)",
-    "url": "YOUR CHANNEL WELCOMER BUTTON URL (Must be only URL and contain: http or https)"
+    "label": "Rules",
+    "url": "https://discord.com/channels/1266524119068053637/1266524119982276610"
   },
-  "pingOnJoinChannelId": "YOUR PING ON JOIN CHANNEL ID, For mention joined member and delete it after 3s (Only Numbers)",
-  "dmWelcomerDescription": "YOUR DM WELCOMER EMBED DESCRIPTION (Less than 4096 characters and use '\n' for go to the any new line)",
+  "pingOnJoinChannelId": "1343212269450039326",
+  "dmWelcomerDescription": "Welcome to our server! We're glad to have you here.",
   "dmWelcomerLinkButtons": {
     "first": {
-      "label": "FIRST DM WELCOMER BUTTON LABEL (Less than 80 characters)",
-      "url": "FIRST DM WELCOMER BUTTON URL (Must be only URL and contain: http or https)"
+      "label": "Verification",
+      "url": "https://discord.com/channels/1266524119068053637/1340723405007356075"
     },
     "second": {
-      "label": "SECOND DM WELCOMER BUTTON LABEL (Less than 80 characters)",
-      "url": "SECOND DM WELCOMER BUTTON URL (Must be only URL and contain: http or https)"
-    },
-    "third": {
-      "label": "THIRD DM WELCOMER BUTTON LABEL (Less than 80 characters)",
-      "url": "THIRD DM WELCOMER BUTTON URL (Must be only URL and contain: http or https)"
-    },
-    "fourth": {
-      "label": "FOURTH DM WELCOMER BUTTON LABEL (Less than 80 characters)",
-      "url": "FOURTH DM WELCOMER BUTTON URL (Must be only URL and contain: http or https)"
+      "label": "Rules",
+        "url": "https://discord.com/channels/1266524119068053637/1266524119982276610"
+      },
+      "third": {
+        "label": "Announcements",
+        "url": "https://discord.com/channels/1266524119068053637/1343018978611560498"
+      },
+      "fourth": {
+        "label": "Support",
+        "url": "https://discord.com/channels/1266524119068053637/1340723413039321169"
     }
   }
 }
